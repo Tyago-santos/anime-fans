@@ -1,5 +1,9 @@
 import { Slider } from "./slider";
+import SliderShow from "./sliderShow";
 
+// selcte element global
+
+const silderContainer = document.querySelector("#slider") as HTMLDivElement;
 class AnimeSlider {
   private container: HTMLElement;
 
@@ -64,6 +68,13 @@ async function startApp() {
     // Criamos instâncias independentes
     new AnimeSlider('#anime_list', 'Top Hits', data);
     new AnimeSlider('#anime_list', 'Mais Populares', data.reverse());
+
+
 }
 
-startApp();
+window.onload = ()=>{
+  startApp();
+   new SliderShow(silderContainer);
+
+}
+
