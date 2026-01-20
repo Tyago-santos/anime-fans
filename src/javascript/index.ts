@@ -1,6 +1,5 @@
 class AnimeSlider {
   private container: HTMLElement;
-  private scrollAmount: number = 0;
   private step: number = 300; // Distância de cada clique
 
   constructor(containerId: string, title: string, animes: any[]) {
