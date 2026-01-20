@@ -1,6 +1,8 @@
+import { Slider } from "./slider";
+
 class AnimeSlider {
   private container: HTMLElement;
-  private step: number = 300; // Distância de cada clique
+
 
   constructor(containerId: string, title: string, animes: any[]) {
     // Criamos o elemento da seção
@@ -23,7 +25,7 @@ class AnimeSlider {
           <i class="fa-solid fa-chevron-left"></i>
         </button>
 
-        <div class="slider-track  flex gap-4 overflow-x-hidden scroll-smooth pb-4">
+        <div class="slider-track transition-margin duration-500 flex gap-4 overflow-x-hidden scroll-smooth pb-4">
           ${animes.map(anime => this.cardTemplate(anime)).join('')}
         </div>
 
@@ -45,17 +47,12 @@ class AnimeSlider {
 
   private initEvents() {
     const track = this.container.querySelector('.slider-track') as HTMLElement;
-    const btnLeft = this.container.querySelector('.btn-left');
-    const btnRight = this.container.querySelector('.btn-right');
+    const btnLeft = this.container.querySelector('.btn-left') as HTMLButtonElement;
+    const btnRight = this.container.querySelector('.btn-right') as HTMLButtonElement;
 
-    btnRight?.addEventListener('click', () => {
-
-      track.scrollLeft += this.step;
-    });
-
-    btnLeft?.addEventListener('click', () => {
-      track.scrollLeft -= this.step;
-    });
+    if (track && btnLeft && btnRight) {
+      new Slider(track, btnRight, btnLeft);
+    }
   }
 }
 
