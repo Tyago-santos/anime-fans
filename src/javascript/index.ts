@@ -1,103 +1,73 @@
-const animeEl = document.querySelector('#anime_list');
+class AnimeSlider {
+  private container: HTMLElement;
+  private scrollAmount: number = 0;
+  private step: number = 300; // Distância de cada clique
 
-
-const API_BASE = 'https://api.jikan.moe/v4/';
-
-type AnimeTypeList ={
-    title: string,
-    mal_id:number,
-    images:{
-        jpg:{
-            image_url:string,
-            small_image_url:string,
-            large_image_url:string
-        }
-    },
-
-    yearn: number,
-    synopsis: string
-}
-
-
-type AnimeType ={
-    title:string,
-   
-
-}
-
-
-
-
-export const animesArr:AnimeType[] = [
-    {
-        title: 'Top mais assitidos',
-    },
-    {
-        title: 'Top mais favoritos',
-    },
-
-    {
-        title: 'Melhores da semana'
-    }
-]
-
-
-
-
-
-function constructorElement(arr: AnimeTypeList[] ){
-    animesArr.forEach(item=>{
-        if(animeEl){
-            animeEl.innerHTML +=`
-            <h1 class="text-center text-3xl font-[Orbitron] text-zinc-100">${item.title}</h1>
-            <div class="max-w-7xl m-auto py-4 ">
-                <div class="rounded-3xl border-3 relative overflow-hidden border-zinc-100 p-4 " >
-                      <div class="absolute bottom-50">
-                        <i class="fa-solid fa-arrow-left text-4xl"></i>
-                    </div>
-
-                    <div class="absolute bottom-50 right-0">
-                        <i class="fa-solid fa-arrow-right text-4xl"></i>
-                    </div>
-                    <ul class="w-[9999px] gap-x-4 flex  ">
-                  
-                    </ul>
-                </div>
-            </div>
-            
-            `;
-        }
-    })
-
-
-    const liElement = animeEl?.querySelectorAll('ul')
-
-    arr.forEach(anime=>{
-        if(liElement){
-            liElement.forEach(el=>{
-                el.innerHTML +=`
-            <li class="cursor-pointer" >
-                <img src=${anime.images.jpg.image_url} alt=${anime.title}>
-                <span>${anime.title}</span>
-            </li >
-            `
-            })
-        }
-    });
-}
-
-async function dataFetch() {
-    const response = await fetch(`${API_BASE}anime`);
-    const data = await response.json();
-    // console.log(data.data);
-
-    constructorElement(data.data)
-
+  constructor(containerId: string, title: string, animes: any[]) {
+    // Criamos o elemento da seção
+    this.container = document.createElement('section');
+    this.container.className = "mb-12 px-10 relative group/slider";
     
+    this.render(title, animes);
+    document.querySelector(containerId)?.appendChild(this.container);
+    this.initEvents();
+  }
+
+  private render(title: string, animes: any[]) {
+    this.container.innerHTML = `
+      <h2 class="font-['Orbitron'] text-xl text-white mb-6 border-l-4 border-[#ff4d9d] pl-4 uppercase tracking-tighter">
+        ${title}
+      </h2>
+
+      <div class="relative flex items-center">
+        <button class="btn-left absolute left-[-30px] z-30 bg-black/90 p-4 rounded-full text-[#37bcf1] opacity-0 group-hover/slider:opacity-100 transition-all border border-[#37bcf1]/30 hover:shadow-[0_0_15px_#37bcf1]">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="slider-track  flex gap-4 overflow-x-hidden scroll-smooth pb-4">
+          ${animes.map(anime => this.cardTemplate(anime)).join('')}
+        </div>
+
+        <button class="btn-right absolute right-[-30px] z-30 bg-black/90 p-4 rounded-full text-[#ff4d9d] opacity-0 group-hover/slider:opacity-100 transition-all border border-[#ff4d9d]/30 hover:shadow-[0_0_15px_#ff4d9d]">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    `;
+  }
+
+  private cardTemplate(anime: any) {
+    return `
+      <div class="min-w-[200px] bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 group transition-all hover:border-[#ff4d9d]">
+        <img src="${anime.images.jpg.large_image_url}" class="w-full h-[280px] object-cover group-hover:scale-105 transition-transform">
+        <div class="p-3 text-sm font-bold truncate text-zinc-200">${anime.title}</div>
+      </div>
+    `;
+  }
+
+  private initEvents() {
+    const track = this.container.querySelector('.slider-track') as HTMLElement;
+    const btnLeft = this.container.querySelector('.btn-left');
+    const btnRight = this.container.querySelector('.btn-right');
+
+    btnRight?.addEventListener('click', () => {
+
+      track.scrollLeft += this.step;
+    });
+
+    btnLeft?.addEventListener('click', () => {
+      track.scrollLeft -= this.step;
+    });
+  }
 }
 
+// --- COMO USAR ---
+async function startApp() {
+    const response = await fetch('https://api.jikan.moe/v4/top/anime');
+    const { data } = await response.json();
 
+    // Criamos instâncias independentes
+    new AnimeSlider('#anime_list', 'Top Hits', data);
+    new AnimeSlider('#anime_list', 'Mais Populares', data.reverse());
+}
 
-
-
-dataFetch()
+startApp();

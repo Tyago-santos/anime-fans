@@ -9,107 +9,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <main class="text-zinc-100">
-        <header class="bg-slate-700">
-            <nav class="text-zinc-100 max-w-7xl m-auto h-[100px] font-[Orbitron] flex items-center justify-between">
-              <a href="#">AnimeFans</a>
+<header class="bg-stone-950 backdrop-blur-md sticky top-0 z-50 border-b border-pink-500/30">
+    <nav class="text-zinc-100 max-w-7xl m-auto h-[80px] font-['Orbitron'] flex items-center justify-between px-4">
+        <a href="#" class="text-2xl font-black tracking-tighter">
+            ANIME<span class="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">FANS</span>
+        </a>
 
-              <ul class=" flex gap-x-2">
-                <li><a href="">Home</a></li>
-                <li><a href="">genero</a></li>
-              </ul>
-            </nav>
-        </header>
+        <ul class="flex gap-x-8 uppercase text-sm tracking-widest font-bold">
+            <li><a href="" class="hover:text-pink-500 transition-colors">Home</a></li>
+            <li><a href="" class="hover:text-pink-500 transition-colors">Gêneros</a></li>
+            <li><a href="" class="hover:text-pink-500 transition-colors">Populares</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <section class="bg-slate-700 ">
-            <h1 class="text-center text-3xl font-[Orbitron] text-zinc-100">Top mais assitidos</h1>
-            <div class="max-w-7xl m-auto py-4 ">
-                <div class="rounded-lg border-2 border-zinc-100 p-4" >
-                    <ul class="flex flex-wrap justify-around">
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      </li class="flex-1">
-                      
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      
-                      </li>
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
+<main class="bg-[#0f0c1d] min-h-screen">
+    <section class="relative h-[70vh] overflow-hidden ">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0f0c1d] via-transparent to-transparent z-10"></div>
+        <div  id="slider" class="flex ">
+            <div class="min-w-full">
+                <img class="w-full h-[70vh] object-cover  opacity-70" src="/anime_1.png" alt="Hero">
+            </div>
 
-                      </li>
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      </li>
-                    </uls>
+              <div class="min-w-full">
+                <img class="w-full h-[70vh] object-cover  opacity-70" src="/anime_2.jpg" alt="Hero">
+            </div>
+
+              <div class="min-w-full">
+                <img class="w-full h-[70vh] object-cover  opacity-70" src="/anime_3.png" alt="Hero">
+            </div>
+
+              <div class="min-w-full">
+                <img class="w-full h-[70vh] object-cover  opacity-70" src="/anime_4.png" alt="Hero">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="anime_list" class="max-w-7xl m-auto py-10 px-4 overflow-hidden">
+        <!-- <h2 class="font-['Orbitron'] text-2xl text-slate-50 mb-6 border-l-4 border-pink-600 pl-4">Lançamentos</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 hover:border-pink-500 transition-all group">
+                <div class="h-64 bg-zinc-800"></div>
+                <div class="p-4">
+                    <p class="font-bold group-hover:text-pink-400">Nome do Anime</p>
                 </div>
             </div>
-        </section>
-        <section class="bg-slate-700 ">
-            <h1 class="text-center text-3xl font-[Orbitron] text-zinc-100">Top mais assitidos</h1>
-            <div class="max-w-7xl m-auto py-4 ">
-                <div class="rounded-lg border-2 border-zinc-100 p-4" >
-                    <ul class="flex flex-wrap justify-around">
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      </li class="flex-1">
-                      
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      
-                      </li>
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-
-                      </li>
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      </li>
-                    </uls>
-                </div>
-            </div>
-        </section>
-        <section class="bg-slate-700 ">
-            <h1 class="text-center text-3xl font-[Orbitron] text-zinc-100">Top mais assitidos</h1>
-            <div class="max-w-7xl m-auto py-4 ">
-                <div class="rounded-lg border-2 border-zinc-100 p-4" >
-                    <ul class="flex flex-wrap justify-around">
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      </li class="flex-1">
-                      
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      
-                      </li>
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-
-                      </li>
-                      <li >
-                        <img src="/anime.jpg" alt="image de anime">
-                        <span>dragon Ball</span>
-                      </li>
-                    </uls>
-                </div>
-            </div>
-        </section>
-
-        
-    </main>
+        </div> -->
+    </section>
+</main>
     <script type="module" src="/src/javascript/index.ts"></script>
   </body>
 </html>
