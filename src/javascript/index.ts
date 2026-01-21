@@ -1,9 +1,12 @@
 import { Slider } from "./slider";
 import SliderShow from "./sliderShow";
-
+import MenuBtn from "./menuBtn";
 // selcte element global
 
-const silderContainer = document.querySelector("#slider") as HTMLDivElement;
+const slderContainer = document.querySelector("#slider") as HTMLDivElement;
+const btnElemnt = document.querySelector("#menuToggle") as HTMLButtonElement;
+const mobileMenu = document.querySelector('#mobileMenu') as HMTLUListElement;
+
 class AnimeSlider {
   private container: HTMLElement;
 
@@ -25,7 +28,7 @@ class AnimeSlider {
       </h2>
 
       <div class="relative flex items-center">
-        <button class="btn-left absolute left-[-30px] z-30 bg-black/90 p-4 rounded-full text-[#37bcf1] opacity-0 group-hover/slider:opacity-100 transition-all border border-[#37bcf1]/30 hover:shadow-[0_0_15px_#37bcf1]">
+        <button class="btn-left absolute left-[-30px] z-30 bg-black/90 p-4 opacity-100 rounded-full text-[#37bcf1] opacity-0 group-hover/slider:opacity-100 transition-all border border-[#37bcf1]/30 hover:shadow-[0_0_15px_#37bcf1]">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
 
@@ -33,7 +36,7 @@ class AnimeSlider {
           ${animes.map(anime => this.cardTemplate(anime)).join('')}
         </div>
 
-        <button class="btn-right absolute right-[-30px] z-30 bg-black/90 p-4 rounded-full text-[#ff4d9d] opacity-0 group-hover/slider:opacity-100 transition-all border border-[#ff4d9d]/30 hover:shadow-[0_0_15px_#ff4d9d]">
+        <button class="btn-right absolute right-[-30px] z-30 bg-black/90 p-4 rounded-full text-[#ff4d9d] opacity-100 group-hover/slider:opacity-100 transition-all border border-[#ff4d9d]/30 hover:shadow-[0_0_15px_#ff4d9d]">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
       </div>
@@ -68,13 +71,14 @@ async function startApp() {
     // Criamos instâncias independentes
     new AnimeSlider('#anime_list', 'Top Hits', data);
     new AnimeSlider('#anime_list', 'Mais Populares', data.reverse());
+    new AnimeSlider('#anime_list', 'Mais Favoritos', data.reverse());
 
 
 }
 
 window.onload = ()=>{
   startApp();
-   new SliderShow(silderContainer);
-
+  new SliderShow(slderContainer);
+  new MenuBtn(btnElemnt, mobileMenu);
 }
 

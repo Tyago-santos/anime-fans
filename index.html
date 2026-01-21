@@ -12,16 +12,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-<header class="bg-stone-950 backdrop-blur-md sticky top-0 z-50 border-b border-pink-500/30">
+<header class="bg-stone-950 backdrop-blur-md sticky top-0 z-50 border-b border-pink-500/30 relative">
     <nav class="text-zinc-100 max-w-7xl m-auto h-[80px] font-['Orbitron'] flex items-center justify-between px-4">
         <a href="#" class="text-2xl font-black tracking-tighter">
             ANIME<span class="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">FANS</span>
         </a>
 
-        <ul class="flex gap-x-8 uppercase text-sm tracking-widest font-bold">
+        <!-- Botão hamburguer com ícone dinâmico -->
+        <button id="menuToggle" class="md:hidden z-50 cursor-pointer text-xl p-2">
+            <i id="menuIcon" class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Menu mobile (escondido por padrão) -->
+        <ul id="mobileMenu" class="md:hidden fixed top-0 left-0 bg-black/95 backdrop-blur-lg w-full h-screen flex flex-col items-center justify-center gap-6 text-sm tracking-widest font-bold transition-all duration-300 transform -translate-x-full">
+            <li><a href="" class="hover:text-pink-500 transition-colors text-xl py-3">Home</a></li>
+            <li><a href="" class="hover:text-pink-500 transition-colors text-xl py-3">Gêneros</a></li>
+            <li><a href="" class="hover:text-pink-500 transition-colors text-xl py-3">Favoritos</a></li>
+        </ul>
+
+        <!-- Menu desktop (visível apenas em md+) -->
+        <ul class="hidden md:flex gap-x-8 uppercase text-sm tracking-widest font-bold">
             <li><a href="" class="hover:text-pink-500 transition-colors">Home</a></li>
             <li><a href="" class="hover:text-pink-500 transition-colors">Gêneros</a></li>
-            <li><a href="" class="hover:text-pink-500 transition-colors">favoritos</a></li>
+            <li><a href="" class="hover:text-pink-500 transition-colors">Favoritos</a></li>
         </ul>
     </nav>
 </header>
@@ -50,23 +63,15 @@
     </section>
 
     <section id="anime_list" class="max-w-7xl m-auto py-10 px-4 overflow-hidden">
-        <!-- <h2 class="font-['Orbitron'] text-2xl text-slate-50 mb-6 border-l-4 border-pink-600 pl-4">Lançamentos</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 hover:border-pink-500 transition-all group">
-                <div class="h-64 bg-zinc-800"></div>
-                <div class="p-4">
-                    <p class="font-bold group-hover:text-pink-400">Nome do Anime</p>
-                </div>
-            </div>
-        </div> -->
+
     </section>
 
     <footer class="p-4" >
       <div class="text-zinc-100 max-w-7xl m-auto h-[80px] font-['Orbitron'] flex items-center justify-between px-4">
-        <a href="#" class="text-2xl font-black tracking-tighter">
+        <a href="#" class="md:text-2xl text-sm font-black tracking-tighter">
             ANIME<span class="text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.8)]">FANS</span>
         </a>
-          <p class="font-bold">&copy; 2024 xlzthyago@gmail.com. Todos os direitos reservados.</p>
+          <p class="font-bold text-[5px] md:text-sm">&copy; 2024 xlzthyago@gmail.com. Todos os direitos reservados.</p>
       </div>
     </footer>
 </main>
