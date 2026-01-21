@@ -7,6 +7,60 @@ const slderContainer = document.querySelector("#slider") as HTMLDivElement;
 const btnElemnt = document.querySelector("#menuToggle") as HTMLButtonElement;
 const mobileMenu = document.querySelector('#mobileMenu') as HMTLUListElement;
 
+
+
+// Types base
+interface MALImage {
+  image_url: string | null;
+  small_image_url: string | null;
+  large_image_url: string | null;
+}
+
+interface MALImages {
+  jpg: MALImage;
+  webp: MALImage;
+}
+
+interface TrailerImages {
+  image_url: string | null;
+  small_image_url: string | null;
+  medium_image_url: string | null;
+  large_image_url: string | null;
+  maximum_image_url: string | null;
+}
+
+interface Anime {
+  mal_id: number;
+  url: string;
+  images: MALImages;
+  trailer: Trailer;
+  approved: boolean;
+  titles: Title[];
+  title: string;
+  title_english: string;
+  title_japanese: string;
+  title_synonyms: string[];
+  type: string;
+  source: string;
+  episodes: number;
+  status: string;
+  airing: boolean;
+  aired: Aired;
+  duration: string;
+  rating: string;
+  score: number;
+  scored_by: number;
+  rank: number;
+  popularity: number;
+  members: number;
+  favorites: number;
+  synopsis: string;
+  background: string;
+  season: string;
+  year: number;
+ }
+
+
 class AnimeSlider {
   private container: HTMLElement;
 
@@ -21,7 +75,7 @@ class AnimeSlider {
     this.initEvents();
   }
 
-  private render(title: string, animes: any[]) {
+  private render(title: string, animes: Anime[]) {
     this.container.innerHTML = `
       <h2 class="font-['Orbitron'] text-xl text-white mb-6 border-l-4 border-[#ff4d9d] pl-4 uppercase tracking-tighter">
         ${title}
@@ -43,9 +97,9 @@ class AnimeSlider {
     `;
   }
 
-  private cardTemplate(anime: any) {
+  private cardTemplate(anime: Anime) {
     return `
-      <div class="min-w-[200px] bg-zinc-900 rounded-lg overflow-hidden border border-zinc-800 group transition-all hover:border-[#ff4d9d]">
+      <div data-${anime.mal_id} class="min-w-[200px] bg-zinc-900 rounded-lg cursor-pointer overflow-hidden border border-zinc-800 group transition-all hover:border-[#ff4d9d]">
         <img src="${anime.images.jpg.large_image_url}" class="w-full h-[280px] object-cover group-hover:scale-105 transition-transform">
         <div class="p-3 text-sm font-bold truncate text-zinc-200">${anime.title}</div>
       </div>
