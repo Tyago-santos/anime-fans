@@ -26,7 +26,9 @@ interface Anime {
   mal_id: number;
   url: string;
   images: MALImages;
+  trailer: Trailer;
   approved: boolean;
+  titles: Title[];
   title: string;
   title_english: string;
   title_japanese: string;
@@ -36,6 +38,7 @@ interface Anime {
   episodes: number;
   status: string;
   airing: boolean;
+  aired: Aired;
   duration: string;
   rating: string;
   score: number;

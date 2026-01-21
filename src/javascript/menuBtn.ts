@@ -8,7 +8,7 @@ export default class MenuBtn {
     }
 
     initialEvents = ()=>{
-        this.elBtn.addEventListener('click', ()=>{
+        this.elBtn?.addEventListener('click', ()=>{
 
 
           if(this.mobileMenu.classList.contains('-translate-x-full')){
