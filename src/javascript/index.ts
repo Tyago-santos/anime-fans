@@ -5,7 +5,7 @@ import MenuBtn from "./menuBtn";
 
 const slderContainer = document.querySelector("#slider") as HTMLDivElement;
 const btnElemnt = document.querySelector("#menuToggle") as HTMLButtonElement;
-const mobileMenu = document.querySelector('#mobileMenu') as HTMLUlistElement
+const mobileMenu = document.querySelector('#mobileMenu') as HTMLUListElement
 ;
 
 
