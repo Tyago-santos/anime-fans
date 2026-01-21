@@ -4,8 +4,8 @@ import MenuBtn from "./menuBtn";
 // selcte element global
 
 const slderContainer = document.querySelector("#slider") as HTMLDivElement;
-const btnElemnt = document.querySelector("#menuToggle");
-const mobileMenu = document.querySelector('#mobileMenu');
+const btnElemnt = document.querySelector("#menuToggle") as HTMLButtonElement;
+const mobileMenu = document.querySelector('#mobileMenu') as HTMLUListElement;
 
 
 
@@ -21,13 +21,6 @@ interface MALImages {
   webp: MALImage;
 }
 
-interface TrailerImages {
-  image_url: string | null;
-  small_image_url: string | null;
-  medium_image_url: string | null;
-  large_image_url: string | null;
-  maximum_image_url: string | null;
-}
 
 interface Anime {
   mal_id: number;
