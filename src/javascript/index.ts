@@ -4,8 +4,8 @@ import MenuBtn from "./menuBtn";
 // selcte element global
 
 const slderContainer = document.querySelector("#slider") as HTMLDivElement;
-const btnElemnt = document.querySelector("#menuToggle") as HTMLButtonElement;
-const mobileMenu = document.querySelector('#mobileMenu') as HMTLUListElement;
+const btnElemnt = document.querySelector("#menuToggle");
+const mobileMenu = document.querySelector('#mobileMenu');
 
 
 
