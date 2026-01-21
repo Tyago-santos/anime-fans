@@ -4,8 +4,8 @@ import MenuBtn from "./menuBtn";
 // selcte element global
 
 const slderContainer = document.querySelector("#slider") as HTMLDivElement;
-const btnElemnt = document.querySelector("#menuToggle") as HTMLButtonElement;
-const mobileMenu = document.querySelector('#mobileMenu') as HTMLUListElement;
+const btnElemnt = document.querySelector("#menuToggle");
+const mobileMenu = document.querySelector('#mobileMenu');
 
 
 
@@ -22,13 +22,12 @@ interface MALImages {
 }
 
 
+
 interface Anime {
   mal_id: number;
   url: string;
   images: MALImages;
-  trailer: Trailer;
   approved: boolean;
-  titles: Title[];
   title: string;
   title_english: string;
   title_japanese: string;
@@ -38,7 +37,6 @@ interface Anime {
   episodes: number;
   status: string;
   airing: boolean;
-  aired: Aired;
   duration: string;
   rating: string;
   score: number;

@@ -1,13 +1,14 @@
 export default class MenuBtn {
     private mobileMenu
     private elBtn;
-    constructor(elBtn: HTMLButtonElement, mobileMenu: HTMLUListElement ){
+    constructor(elBtn: HTMLButtonElement, mobileMenu ){
         this.elBtn = elBtn;
         this.mobileMenu = mobileMenu;
         this.initialEvents();
     }
 
     initialEvents = ()=>{
+      if(){
         this.elBtn?.addEventListener('click', ()=>{
 
 
@@ -23,5 +24,7 @@ export default class MenuBtn {
           }
 
         });
+      }
+
     }
 }
